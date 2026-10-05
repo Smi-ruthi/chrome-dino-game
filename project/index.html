@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dino Run</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="page">
+        <h1 class="page-title">DINO RUN</h1>
+
+        <!-- Game + advertisement live in the same centred shell -->
+        <div id="game-shell">
+            <div id="game-stage">
+                <!-- The Chromium engine finds this element (.interstitial-wrapper),
+                     measures it (max 600px) and appends its 600x150 canvas inside. -->
+                <div id="game-frame" class="interstitial-wrapper">
+                    <div class="icon-offline"></div>
+
+                    <!-- Custom game-over overlay (hidden until the Dino dies) -->
+                    <div id="game-over" class="overlay hidden">
+                        <div id="game-over-title" class="overlay-title">GAME OVER</div>
+                        <div id="game-over-score" class="overlay-score">SCORE: 00000</div>
+                        <div class="overlay-buttons">
+                            <button id="revive-btn" class="btn btn-primary" type="button">WATCH AD TO REVIVE</button>
+                            <button id="run-again-btn" class="btn" type="button">RUN AGAIN</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advertisement box: centred, never full-screen -->
+            <section id="ad-box" class="ad-box" hidden aria-label="Advertisement">
+                <div class="ad-label">ADVERTISEMENT</div>
+                <div class="ad-video-wrap">
+                    <video id="ad-video" src="assets/revive-ad.mp4" muted playsinline preload="auto"></video>
+                </div>
+                <div id="ad-countdown" class="ad-countdown">CONTINUE IN 10</div>
+                <button id="continue-btn" class="btn btn-primary" type="button" disabled>CONTINUE RUN</button>
+            </section>
+        </div>
+
+        <p class="hint">SPACE / &uarr; to jump &nbsp;&middot;&nbsp; &darr; to duck</p>
+    </main>
+
+    <script src="game.js"></script>
+</body>
+</html>
